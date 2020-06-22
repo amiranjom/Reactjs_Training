@@ -1,0 +1,25 @@
+import React, { Component } from "react";
+
+//creating State
+const initialState = {
+  name: "Amir",
+  message: "Setting up State ",
+};
+
+//Define State Type
+type State = Readonly<typeof initialState>;
+
+const messageHoc = (WrappedComponent: any) => {
+  class HOC extends Component<{}, State> {
+    readonly state: State = initialState;
+
+    render() {
+      return (
+        <WrappedComponent name={this.state.name} message={this.state.message} />
+      );
+    }
+  }
+  return HOC;
+};
+
+export default messageHoc

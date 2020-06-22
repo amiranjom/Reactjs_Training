@@ -1,4 +1,5 @@
 import React from 'react';
+import messageHoc from './Hoc'
 
 //Type inspection for the props to check type
 //you dont need to spcificy any
@@ -8,15 +9,16 @@ import React from 'react';
 
 //Interface Prop
 //Accept multiple props with Interface instead of seprate parameteres
-interface UserMessage{
-    name: string,
-    message: string
-} 
+// interface UserMessage{
+//     name: string,
+//     message: string
+// } 
 
-const Message = (props: UserMessage ) => {
-    return(
-        <p> {props.name},  {props.message}</p>
-    )
-}
+const example = (props: any): any => <p>{props.name}{props.message}</p>
+
+
+const Message = messageHoc(example)
+
+
 
 export default Message;
